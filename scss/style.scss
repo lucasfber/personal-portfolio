@@ -1,37 +1,57 @@
 @import "resets/reset";
 @import "mixins";
-//Photo by Gally from Pexels
+
+$primary-color: #17a2b8;
 
 .header {
   position: relative;
 
   .btn-menu {
-    position: absolute;
+    padding: 2rem 2rem;
+    position: fixed;
     top: 3rem;
     right: 3rem;
-    z-index: 3;
+    border-radius: 3px;
+    z-index: 999;
     cursor: pointer;
-    transition: 0.5s ease-out;
+
+    &__bar,
+    &__bar::after,
+    &__bar::before {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 2.5rem;
+      background-color: #fff;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      transition: 650ms;
+    }
 
     &__bar {
-      width: 2.8rem;
-      height: 0.2rem;
-      background-color: #fff;
-      margin-bottom: 0.5rem;
-      transition: 0.5s ease-out;
+      &::before {
+        top: -2rem;
+      }
+
+      &::after {
+        top: 2rem;
+      }
     }
 
     &.close {
-      transform: rotate(180deg);
       .btn-menu__bar {
-        &:nth-child(1) {
-          transform: rotate(45deg) translate(5px, 5px);
+        background-color: transparent;
+
+        &::before {
+          transform: rotate(45deg);
+          top: 0;
         }
-        &:nth-child(2) {
-          opacity: 0;
-        }
-        &:nth-child(3) {
-          transform: rotate(-45deg) translate(4px, -5.5px);
+        &::after {
+          transform: rotate(-45deg);
+          top: 0;
         }
       }
     }
@@ -54,7 +74,6 @@
 
     .nav-links {
       width: 75%;
-      //border: 1px solid red;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -69,7 +88,7 @@
           color: #fff;
           transition: color 0.3s ease-in;
           &:hover {
-            color: cyan;
+            color: $primary-color;
           }
         }
       }
@@ -97,21 +116,18 @@
     align-items: center;
     justify-content: center;
     padding: 3.6rem 1.6rem;
-    //background-color: rgba(blue, 0.5);
     .profile-pic {
       @include set-profile-picture(18rem, 18rem);
-      margin-bottom: 3.2rem;
+      margin: 5rem 0 3.2rem 0;
     }
 
     h1 {
       font-size: 6rem;
       color: #fff;
-      font-weight: 700;
       margin-bottom: 3.2rem;
     }
 
     .social-links {
-      //background-color: rgba(cyan, 0.5);
       width: 40rem;
       padding: 3.2rem;
       display: flex;
@@ -124,7 +140,7 @@
 
         &:hover {
           a {
-            color: rgba(cyan, 0.5);
+            color: $primary-color;
           }
         }
       }

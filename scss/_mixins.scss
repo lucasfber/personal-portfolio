@@ -2,6 +2,6 @@
   background: url("../img/profile-pic.jpg") no-repeat center center / cover;
   width: $width;
   height: $height;
-  border: 3px solid cyan;
+  border: 3px solid $primary-color;
   border-radius: 50%;
 }
