@@ -1,0 +1,7 @@
+@mixin set-profile-picture($width, $height) {
+  background: url("../img/profile-pic.jpg") no-repeat center center / cover;
+  width: $width;
+  height: $height;
+  border: 3px solid cyan;
+  border-radius: 50%;
+}

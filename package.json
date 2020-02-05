@@ -1,0 +1,9 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "sass --no-source-map --watch scss:dist/css --style=compressed"
+  },
+  "main": "index.js",
+  "license": "MIT"
+}
