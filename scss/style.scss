@@ -1,7 +1,36 @@
 @import "resets/reset";
 @import "mixins";
+@import "colors";
+@import "misc";
+section {
+  padding-top: 3rem;
+}
 
-$primary-color: #17a2b8;
+.container {
+  width: $max-width;
+  margin: 0 auto;
+}
+
+.m-heading {
+  @include set-heading-size(4.2rem, bold);
+}
+
+.s-heading {
+  @include set-heading-size(2.8rem, bold);
+}
+
+.pill {
+  display: inline-block;
+  text-align: center;
+  padding: 1rem 2rem;
+  border-radius: 2.6rem;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.4rem;
+  margin-right: 0.3rem;
+  margin-bottom: 1.2rem;
+  box-shadow: 0.3rem 0.3rem 0.3rem grey;
+}
 
 .header {
   position: relative;
@@ -11,16 +40,18 @@ $primary-color: #17a2b8;
     position: fixed;
     top: 3rem;
     right: 3rem;
-    border-radius: 3px;
-    z-index: 999;
+    z-index: 3;
     cursor: pointer;
+    background-color: rgba(black, 0.5);
+
+    border-radius: 4px;
 
     &__bar,
     &__bar::after,
     &__bar::before {
       content: "";
       position: absolute;
-      height: 2px;
+      height: 0.2rem;
       width: 2.5rem;
       background-color: #fff;
       top: 0;
@@ -69,7 +100,7 @@ $primary-color: #17a2b8;
     transform: translateY(-100%);
 
     .profile-pic {
-      @include set-profile-picture(14rem, 14rem);
+      @include set-profile-picture(14rem, 14rem, 50%, $primary-color);
     }
 
     .nav-links {
@@ -117,7 +148,7 @@ $primary-color: #17a2b8;
     justify-content: center;
     padding: 3.6rem 1.6rem;
     .profile-pic {
-      @include set-profile-picture(18rem, 18rem);
+      @include set-profile-picture(18rem, 18rem, 50%, $primary-color);
       margin: 5rem 0 3.2rem 0;
     }
 
@@ -143,6 +174,46 @@ $primary-color: #17a2b8;
             color: $primary-color;
           }
         }
+      }
+    }
+  }
+}
+
+/* About */
+.about {
+  height: 100vh;
+  padding-bottom: 3rem;
+
+  .about-info {
+    //background-color: tomato;
+    width: 100%;
+    display: flex;
+    margin-top: 3.2rem;
+    justify-content: space-between;
+
+    &__picture {
+      @include set-profile-picture(25.6rem, 25.6rem, 0, false);
+    }
+
+    &__text {
+      align-self: flex-start;
+      padding: 0 0 2.4rem 2.4rem;
+      width: 75%;
+      //background-color: $primary-color;
+      font-size: 2.4rem;
+      text-align: left;
+    }
+  }
+
+  .skills {
+    margin: 6rem 0 3rem 0;
+    padding: 0 1.6rem;
+
+    &__wrapper {
+      margin-top: 1.8rem;
+      text-align: center;
+      li {
+        display: inline-block;
       }
     }
   }
